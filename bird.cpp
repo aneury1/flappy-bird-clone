@@ -95,6 +95,9 @@ void Bird::Tap()
     movementClock.restart();
     _birdState = BIRD_STATE_FLYING;
 }
-
+const sf::Sprite& Bird::GetSprite()  const
+{
+    return _birdSprite;
+}
 
 }

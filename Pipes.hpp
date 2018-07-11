@@ -25,6 +25,9 @@ class Pipe
 
     void RandomizePipeOffset();
 
+    inline const std::vector<sf::Sprite>& GetSprites()const{return pipeSprites;}
+
+
 };
 
 

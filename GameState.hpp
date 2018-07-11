@@ -6,7 +6,7 @@
 #include "Pipes.hpp"
 #include "Land.hpp"
 #include "Bird.hpp"
-
+#include "Collision.hpp"
 
 namespace FBC
 {
@@ -28,6 +28,9 @@ namespace FBC
          Pipe *pipes;
          Land *land;
          Bird *bird;
+         Collision collision;
+
+         int game_state;
   };
 
 

@@ -65,6 +65,7 @@ endif
 OBJECTS :=
 
 OBJECTS += $(OBJDIR)/AssetManager.o
+OBJECTS += $(OBJDIR)/Collision.o
 OBJECTS += $(OBJDIR)/Game.o
 OBJECTS += $(OBJDIR)/GameOverState.o
 OBJECTS += $(OBJDIR)/GameState.o
@@ -138,6 +139,9 @@ endif
 # #############################################
 
 $(OBJDIR)/AssetManager.o: AssetManager.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Collision.o: Collision.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/Game.o: Game.cpp

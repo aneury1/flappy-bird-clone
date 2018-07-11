@@ -1,6 +1,6 @@
 obj/Debug/GameState.o: GameState.cpp GameState.hpp State.hpp Game.hpp \
  StateMachine.hpp AssetManager.hpp InputManager.hpp Pipes.hpp Land.hpp \
- def.hpp Bird.hpp GameOverState.hpp
+ def.hpp Bird.hpp Collision.hpp GameOverState.hpp
 
 GameState.hpp:
 
@@ -21,5 +21,7 @@ Land.hpp:
 def.hpp:
 
 Bird.hpp:
+
+Collision.hpp:
 
 GameOverState.hpp:

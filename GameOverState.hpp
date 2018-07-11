@@ -21,6 +21,7 @@ namespace FBC
          GameDataRef _data;
    
          sf::Sprite _background;
+         sf::Sprite _gameOverMsg;
          sf::Sprite _Playbutton;
          sf::Sprite _title;
   };
