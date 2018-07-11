@@ -36,6 +36,7 @@ void GameState::Init()
      pipes = new Pipe(_data); 
      land  = new Land(_data);
      bird  = new Bird(_data);
+     flash = new Flash(_data);
 
     game_state = GameStates::eReady;
 }
@@ -106,6 +107,11 @@ void GameState::Update(float dt)
                     }
                 }
     }
+       if(game_state == GameStates::eGameOver)
+       {
+           flash->show(dt);
+       }
+
 }
 void GameState::Draw( float dt)
 {
@@ -114,6 +120,7 @@ void GameState::Draw( float dt)
      pipes->DrawPipes();
      land->DrawLand();
      bird->Draw();
+     flash->draw();
     _data->window.display();
 }
 
