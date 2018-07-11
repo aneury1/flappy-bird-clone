@@ -69,6 +69,7 @@ OBJECTS += $(OBJDIR)/Game.o
 OBJECTS += $(OBJDIR)/GameOverState.o
 OBJECTS += $(OBJDIR)/GameState.o
 OBJECTS += $(OBJDIR)/InputManager.o
+OBJECTS += $(OBJDIR)/Land.o
 OBJECTS += $(OBJDIR)/MainMenuState.o
 OBJECTS += $(OBJDIR)/SplashState.o
 OBJECTS += $(OBJDIR)/StateMachine.o
@@ -148,6 +149,9 @@ $(OBJDIR)/GameState.o: GameState.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/InputManager.o: InputManager.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/Land.o: Land.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/MainMenuState.o: MainMenuState.cpp

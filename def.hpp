@@ -4,7 +4,7 @@
 #define SCREEN_HEIGHT 800
 #define SPLASH_STATE_SHOW_TIME 3.0
 #define PIPE_MOVE_SPEED 200.0f
-#define PIPE_SPAWN_SPEED_FRECUENCY 3.0f
+#define PIPE_SPAWN_SPEED_FRECUENCY 1.5f
 
 
 
@@ -16,4 +16,4 @@
 #define GAME_OVER_BACKGROUND "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\background.png"
 #define PIPE_UP "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\PipeUp.png"
 #define PIPE_DOWN "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\PipeDown.png"
-
+#define LAND_IMG "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\Land.png"

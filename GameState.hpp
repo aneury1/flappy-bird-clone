@@ -4,6 +4,9 @@
 #include "State.hpp"
 #include "Game.hpp"
 #include "Pipes.hpp"
+#include "Land.hpp"
+
+
 
 namespace FBC
 {
@@ -23,6 +26,7 @@ namespace FBC
          sf::Clock clock;
          sf::Sprite _background;
          Pipe *pipes;
+         Land *land;
   };
 
 

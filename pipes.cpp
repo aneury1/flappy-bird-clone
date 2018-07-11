@@ -1,12 +1,15 @@
 #include <iostream>
+#include <ctime>
+#include <cstdlib>
 #include "Pipes.hpp"
 #include "def.hpp"
 namespace FBC{
     
 Pipe::Pipe(GameDataRef data):_data(data)
 {
-
-
+   _landHeight = _data->assets.GetTexture("Land").getSize().y;
+   _pipeSpawnYOffset = 0;
+    
 }
 
 void Pipe::DrawPipes()
@@ -17,19 +20,20 @@ void Pipe::DrawPipes()
    }
 }
 
-
 void Pipe::SpawnBottomPipe()
 {
   sf::Sprite sprite( _data->assets.GetTexture("pipeup"));
-  sprite.setPosition(_data->window.getSize().x,  _data->window.getSize().y - sprite.getGlobalBounds().height );
+  sprite.setPosition(_data->window.getSize().x,  _data->window.getSize().y - sprite.getGlobalBounds().height - _pipeSpawnYOffset);
   pipeSprites.push_back(sprite);
 }
+
 void Pipe::SpawnTopPie()
 {
   sf::Sprite sprite( _data->assets.GetTexture("pipedown"));
-  sprite.setPosition(_data->window.getSize().x,  0 );
+  sprite.setPosition(_data->window.getSize().x, -_pipeSpawnYOffset );
   pipeSprites.push_back(sprite);
 }
+
 void Pipe::SpawnInvisiblePipe()
 {
   sf::Sprite sprite( _data->assets.GetTexture("pipeup"));
@@ -40,12 +44,7 @@ void Pipe::SpawnInvisiblePipe()
 }
 void Pipe::MovePipes(float dt)
 {
-  /* for(unsigned int i =0; i<pipeSprites.size();i++)
-   {
-      float movement = dt * PIPE_MOVE_SPEED;
-      pipeSprites[i].move(-movement, 0);
-   }*/
-
+ 
 for(unsigned int i =0; i<pipeSprites.size();i++)
    {
       if(pipeSprites[i].getPosition().x < 0 - pipeSprites[i].getGlobalBounds().width)
@@ -58,9 +57,12 @@ for(unsigned int i =0; i<pipeSprites.size();i++)
         pipeSprites[i].move(-movement, 0);
       }
    }
-   std::cout <<pipeSprites.size()<<std::endl;
-
-
-
+ 
 }
+
+  void Pipe::RandomizePipeOffset()
+  {
+     this->_pipeSpawnYOffset = std::rand() % _landHeight + 1;
+  }
+
 }
