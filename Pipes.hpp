@@ -11,6 +11,7 @@ class Pipe
    
    GameDataRef _data;
    std::vector<sf::Sprite> pipeSprites;
+   std::vector<sf::Sprite> ScoringSprites;
    int _landHeight;
    int _pipeSpawnYOffset;
 
@@ -21,12 +22,13 @@ class Pipe
     void SpawnBottomPipe();
     void SpawnTopPie();
     void SpawnInvisiblePipe();
+    void SpawnScoringPipe();
     void MovePipes(float dt);
 
     void RandomizePipeOffset();
 
     inline const std::vector<sf::Sprite>& GetSprites()const{return pipeSprites;}
-
+    inline   std::vector<sf::Sprite>& GetScoringSprites() {return ScoringSprites;}
 
 };
 

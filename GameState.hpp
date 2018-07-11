@@ -34,7 +34,7 @@ namespace FBC
          Collision collision;
 
          int game_state;
- 
+         int _score;
 
   };
 

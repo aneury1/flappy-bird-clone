@@ -27,7 +27,7 @@ void GameState::Init()
     _data->assets.LoadTexture("bird2", BIRD_FRAME_2_PATH);
     _data->assets.LoadTexture("bird3", BIRD_FRAME_3_PATH);
     _data->assets.LoadTexture("bird4", BIRD_FRAME_4_PATH);
-
+    _data->assets.LoadTexture("pipescore",SCORE_PIPE_IMG);
     _data->assets.LoadTexture("gameovermsg", GAME_OVER_MSG);
 
     
@@ -39,6 +39,7 @@ void GameState::Init()
      flash = new Flash(_data);
 
     game_state = GameStates::eReady;
+    _score =0;
 }
 
 void GameState::HandleInput()
@@ -75,7 +76,7 @@ void GameState::Update(float dt)
         if(clock.getElapsedTime().asSeconds() > PIPE_SPAWN_SPEED_FRECUENCY)
                 {
                         pipes->RandomizePipeOffset();
-
+            
                         pipes->SpawnInvisiblePipe();
                         pipes->SpawnBottomPipe();
                         pipes->SpawnTopPie();
@@ -106,6 +107,22 @@ void GameState::Update(float dt)
                        /// _data->machine.AddState(StateRef(new GameOverState(_data)),true);
                     }
                 }
+
+
+                std::vector<sf::Sprite> &pipeScoreSprites = pipes->GetScoringSprites();
+        
+                for(unsigned int i =0; i<pipeScoreSprites.size(); i++)
+                {
+                    if( collision.CheckSpriteCollision(pipeScoreSprites[i],0.625f, bird->GetSprite(), 1.0f))
+                    {
+                         _score++;
+                         std::cout <<"Score : "<<_score<<"\n";
+                         pipeScoreSprites.erase(pipeScoreSprites.begin()+i);
+                    }
+                }
+
+
+
     }
        if(game_state == GameStates::eGameOver)
        {

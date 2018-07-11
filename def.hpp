@@ -37,3 +37,4 @@ enum GameStates
 #define BIRD_FRAME_3_PATH  "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\bird-03.png"
 #define BIRD_FRAME_4_PATH  "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\bird-04.png"
 #define GAME_OVER_MSG        "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\Game-Over-Title.png"
+#define SCORE_PIPE_IMG  "C:\\Aneury\\Flappy-bird-clone\\bin\\Debug\\Resources\\res\\InvisibleScoringPipe.png"
