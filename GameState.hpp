@@ -19,7 +19,8 @@ namespace FBC
        
        private:
          GameDataRef _data;
-   
+        
+         sf::Clock clock;
          sf::Sprite _background;
          Pipe *pipes;
   };

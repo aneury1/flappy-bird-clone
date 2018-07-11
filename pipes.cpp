@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Pipes.hpp"
 #include "def.hpp"
 namespace FBC{
@@ -39,10 +40,27 @@ void Pipe::SpawnInvisiblePipe()
 }
 void Pipe::MovePipes(float dt)
 {
-   for(unsigned int i =0; i<pipeSprites.size();i++)
+  /* for(unsigned int i =0; i<pipeSprites.size();i++)
    {
       float movement = dt * PIPE_MOVE_SPEED;
       pipeSprites[i].move(-movement, 0);
+   }*/
+
+for(unsigned int i =0; i<pipeSprites.size();i++)
+   {
+      if(pipeSprites[i].getPosition().x < 0 - pipeSprites[i].getGlobalBounds().width)
+      {
+           pipeSprites.erase(pipeSprites.begin()+i);
+      }
+      else
+      {
+        float movement = dt * PIPE_MOVE_SPEED;
+        pipeSprites[i].move(-movement, 0);
+      }
    }
+   std::cout <<pipeSprites.size()<<std::endl;
+
+
+
 }
 }

@@ -47,6 +47,16 @@ void GameState::HandleInput()
 void GameState::Update(float dt) 
 {
     pipes->MovePipes( dt );
+ 
+     if(clock.getElapsedTime().asSeconds() > PIPE_SPAWN_SPEED_FRECUENCY)
+     {
+              pipes->SpawnInvisiblePipe();
+              pipes->SpawnBottomPipe();
+              pipes->SpawnTopPie();
+              clock.restart();
+     }
+
+
 }
 void GameState::Draw( float dt)
 {
