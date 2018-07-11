@@ -5,7 +5,7 @@
 #include "Game.hpp"
 #include "Pipes.hpp"
 #include "Land.hpp"
-
+#include "Bird.hpp"
 
 
 namespace FBC
@@ -27,6 +27,7 @@ namespace FBC
          sf::Sprite _background;
          Pipe *pipes;
          Land *land;
+         Bird *bird;
   };
 
 

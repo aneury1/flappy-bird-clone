@@ -7,6 +7,7 @@ namespace FBC{
     
 Pipe::Pipe(GameDataRef data):_data(data)
 {
+   srand(time(nullptr));
    _landHeight = _data->assets.GetTexture("Land").getSize().y;
    _pipeSpawnYOffset = 0;
     
@@ -30,7 +31,7 @@ void Pipe::SpawnBottomPipe()
 void Pipe::SpawnTopPie()
 {
   sf::Sprite sprite( _data->assets.GetTexture("pipedown"));
-  sprite.setPosition(_data->window.getSize().x, -_pipeSpawnYOffset );
+  sprite.setPosition(_data->window.getSize().x, - _pipeSpawnYOffset  );
   pipeSprites.push_back(sprite);
 }
 
@@ -62,7 +63,8 @@ for(unsigned int i =0; i<pipeSprites.size();i++)
 
   void Pipe::RandomizePipeOffset()
   {
-     this->_pipeSpawnYOffset = std::rand() % _landHeight + 1;
+     this->_pipeSpawnYOffset = (std::rand() % _landHeight + 1)   ;
+
   }
 
 }

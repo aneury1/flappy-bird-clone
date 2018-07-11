@@ -73,6 +73,7 @@ OBJECTS += $(OBJDIR)/Land.o
 OBJECTS += $(OBJDIR)/MainMenuState.o
 OBJECTS += $(OBJDIR)/SplashState.o
 OBJECTS += $(OBJDIR)/StateMachine.o
+OBJECTS += $(OBJDIR)/bird.o
 OBJECTS += $(OBJDIR)/main.o
 OBJECTS += $(OBJDIR)/pipes.o
 
@@ -161,6 +162,9 @@ $(OBJDIR)/SplashState.o: SplashState.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/StateMachine.o: StateMachine.cpp
+	@echo $(notdir $<)
+	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
+$(OBJDIR)/bird.o: bird.cpp
 	@echo $(notdir $<)
 	$(SILENT) $(CXX) $(ALL_CXXFLAGS) $(FORCE_INCLUDE) -o "$@" -MF "$(@:%.o=%.d)" -c "$<"
 $(OBJDIR)/main.o: main.cpp
